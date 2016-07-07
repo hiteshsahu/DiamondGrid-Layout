@@ -1,10 +1,17 @@
 # DiamondGrid-Layout
 This is an experiment with Android Grid View. This Layout beutifully  rotate itself at 45 degrees and take shape like a Diamond.
 
+## Inspired by
+
+![Alt text](https://github.com/hiteshsahu/DiamondGrid-Layout/blob/master/screenshots/The%20Muse.jpg "Muse")
+
+
+Feel free to play with controls to change animation value. All changes in animation values will persist. Also you may want to rotate your screen.
+
+
 ![Alt text](https://github.com/hiteshsahu/DiamondGrid-Layout/blob/master/screenshots/diamond_grid.png "Simple Diamond Grid")
 ![Alt text](https://github.com/hiteshsahu/DiamondGrid-Layout/blob/master/screenshots/diamond_grid_2.png "Complex Diamond Grid")
 
-Feel free to play with controls to change animation value. All changes in animation values will persist. Also you may want to rotate your screen.
 
 
 
