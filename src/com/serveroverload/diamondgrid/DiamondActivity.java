@@ -47,12 +47,12 @@ public class DiamondActivity extends Activity {
 		resizedYValue = sharedPref.getFloat(Y_VALUE, .1f);
 
 		gridview = (GridView) findViewById(R.id.grid_awesome);
-		gridview.setAdapter(new ImageAdapter(this, true));
+		gridview.setAdapter(new ImageAdapter(this, true, animationTime));
 
 		RotateAnimation rotate = new RotateAnimation(0, 45,
 				Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
 				0.5f);
-		rotate.setDuration(5000);
+		rotate.setDuration(animationTime);
 		rotate.setInterpolator(new LinearInterpolator());
 
 		((ToggleButton) findViewById(R.id.toggler))
@@ -63,18 +63,12 @@ public class DiamondActivity extends Activity {
 							boolean isChecked) {
 
 						gridview.setAdapter(new ImageAdapter(
-								getApplicationContext(), isChecked));
+								getApplicationContext(), isChecked,
+								animationTime));
 
 					}
 				});
 
-		// gridview.startAnimation(rotate);
-
-		// DisplayMetrics displaymetrics = new DisplayMetrics();
-		// getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
-		// int height = displaymetrics.heightPixels;
-		// int width = displaymetrics.widthPixels;
-		// //
 		gridview.animate().rotationBy(45).setDuration(animationTime)
 				.setInterpolator(new AccelerateDecelerateInterpolator())
 				.start();
@@ -108,7 +102,7 @@ public class DiamondActivity extends Activity {
 				gridview.animate()
 						.scaleX(resizedXValue)
 						.scaleY(resizedXValue)
-						.setDuration(800)
+						.setDuration(animationTime)
 						.setInterpolator(new AccelerateDecelerateInterpolator())
 						.start();
 
@@ -200,24 +194,5 @@ public class DiamondActivity extends Activity {
 		editor.putFloat(X_VALUE, resizedXValue);
 		editor.putFloat(Y_VALUE, resizedYValue);
 		editor.commit();
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
 	}
 }

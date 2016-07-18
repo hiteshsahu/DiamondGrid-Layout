@@ -16,9 +16,12 @@ public class ImageAdapter extends BaseAdapter {
 
 	private boolean showMinMode;
 
-	public ImageAdapter(Context c, boolean showMinMode) {
+	private int animationTime;
+
+	public ImageAdapter(Context c, boolean showMinMode, int animationTime) {
 		mContext = c;
 		this.showMinMode = showMinMode;
+		this.animationTime = animationTime;
 	}
 
 	public int getCount() {
@@ -57,7 +60,7 @@ public class ImageAdapter extends BaseAdapter {
 			}
 
 			myView.findViewById(R.id.grid_image).animate().rotationBy(-45)
-					.setDuration(800)
+					.setDuration(animationTime)
 					.setInterpolator(new AccelerateDecelerateInterpolator())
 					.start();
 		} else {
